@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رمضان الكريم 🌙</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Tajawal", sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(to bottom, #ffffff, #ffffff);
+      min-height: 100vh;
+      color: #333;
+      overflow-x: hidden; /* منع التمرير الأفقي */
+    }
+
+    /* الترويسة - مصححة للهاتف */
+    .header {
+      background: linear-gradient(135deg, rgba(26, 92, 54, 0.85) 0%, rgba(46, 125, 50, 0.85) 100%);
+      background-image: url('https://i.pinimg.com/736x/68/f0/89/68f0899f28c7c624005fc4cd4ac51cb8.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-blend-mode: overlay;
+      color: white;
+      text-align: center;
+      
+      /* إصلاح العرض للجوال */
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      
+      padding: 45px 15px 20px;
+      min-height: 180px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 8px 25px rgba(26, 92, 54, 0.3);
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .lanterns {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      pointer-events: none;
+    }
+
+    .lantern {
+      width: 40px;
+      height: 50px;
+      background: linear-gradient(to bottom, #d4af37, #ffd700);
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+      animation: swing 3s ease-in-out infinite;
+    }
+
+    .lantern:nth-child(2) { animation-delay: 0.5s; }
+    .lantern:nth-child(3) { animation-delay: 1s; }
+    .lantern:nth-child(4) { animation-delay: 1.5s; }
+    .lantern:nth-child(5) { animation-delay: 0.8s; }
+
+    .lantern::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 8px;
+      background: #63b264;
+      border-radius: 4px;
+    }
+
+    @keyframes swing {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      position: relative;
+      color: #f0f0f0;
+    }
+
+    /* Grid */
+    .container {
+      padding: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+      display: block;
+      border: 2px solid #f0e6d1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      border-color: #4ba80d;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
+      transition: width 0.5s;
+      z-index: 1;
+    }
+
+    .card:hover::after {
+      width: 100%;
+    }
+
+    /* Image Container */
+    .image-container {
+      width: 120px;
+      height: 120px;
+      border-radius: 25px;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      border: 3px solid white;
+      z-index: 2;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .card:hover .image-container img {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #1a5c36;
+      font-weight: 700;
+      transition: color 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card:hover h3 {
+      color: #41bc33;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #1a5c36;
+      font-size: 16px;
+      border-top: 1px solid #f0e6d1;
+      margin-top: 60px;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    footer p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    footer .ramadan-icon {
+      color: #249934;
+      font-size: 1.3rem;
+    }
+
+    /* تصميم رمضاني إضافي */
+    .ramadan-decoration {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #d4af37;
+      opacity: 0.7;
+      z-index: 1000;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* زر العودة للأعلى */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: linear-gradient(135deg, #1a5c36 0%, #2e7d32 100%);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(26, 92, 54, 0.3);
+      transition: all 0.3s;
+      z-index: 1000;
+      border: 2px solid #1b9217;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(26, 92, 54, 0.4);
+    }
+
+    /* ⭐⭐⭐ CSS للجوال - مصحح ⭐⭐⭐ */
+    @media (max-width: 768px) {
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      /* إصلاح الشريط للجوال */
+      .header {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding: 40px 0 15px !important;
+        min-height: 160px !important;
+        border-radius: 0 0 30px 30px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        position: relative !important;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 8px !important;
+        padding: 0 15px !important;
+        word-break: keep-all;
+      }
+      
+      .header p {
+        font-size: 1rem !important;
+        padding: 0 15px !important;
+      }
+      
+      .lanterns {
+        gap: 10px;
+        top: 8px;
+      }
+      
+      .lantern {
+        width: 30px !important;
+        height: 40px !important;
+      }
+      
+      /* إصلاح البطاقات للجوال */
+      .container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        gap: 15px !important;
+        padding: 15px 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
+      .card {
+        padding: 20px 10px !important;
+        border-radius: 18px !important;
+        margin: 0 !important;
+      }
+      
+      .image-container {
+        width: 90px !important;
+        height: 90px !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .card h3 {
+        font-size: 15px !important;
+      }
+      
+      /* إصلاح الفوتر للجوال */
+      footer {
+        padding: 25px 15px !important;
+        margin-top: 40px !important;
+        width: 100% !important;
+      }
+      
+      footer p {
+        font-size: 0.95rem !important;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .ramadan-decoration {
+        font-size: 20px !important;
+        top: 15px !important;
+        left: 15px !important;
+      }
+      
+      .back-to-top {
+        width: 45px !important;
+        height: 45px !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        font-size: 20px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding: 12px 8px !important;
+      }
+      
+      .header {
+        min-height: 150px !important;
+        padding: 35px 0 12px !important;
+      }
+      
+      .header h1 {
+        font-size: 1.6rem !important;
+      }
+      
+      .image-container {
+        width: 80px !important;
+        height: 80px !important;
+      }
+      
+      .card h3 {
+        font-size: 14px !important;
+      }
+      
+      .lantern {
+        width: 25px !important;
+        height: 35px !important;
+      }
+    }
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- زخرفة رمضانية -->
+  <div class="ramadan-decoration">🌙</div>
+
+  <!-- Header مع فوانيس -->
+  <header class="header">
+    <div class="lanterns">
+      <div class="lantern"></div>
+      <div class="lantern"></div>
+      <div class="lantern"></div>
+      <div class="lantern"></div>
+      <div class="lantern"></div>
+    </div>
+    <h1>زاد رمضان 🌙</h1>
+    
+  </header>
+
+  <!-- الأقسام الرئيسية فقط (تم حذف التحدي) -->
+  <main class="container">
+    <!-- تحدي رمضان -->
+    <a href="#" class="card" onclick="alert('صفحة التحدي قيد التطوير')">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="تحدي رمضان">
+      </div>
+      <h3>تحدي رمضان</h3>
+    </a>
+
+    <!-- الأذكار -->
+    <a href="#" class="card" onclick="alert('صفحة الأذكار قيد التطوير')">
+      <div class="image-container">
+        <img src="https://img.pikbest.com/backgrounds/20250325/sunsets-over-lakes-with-reeds_11626680.jpg!w700wp" alt="الأذكار">
+      </div>
+      <h3>الأذكار اليومية</h3>
+    </a>
+
+    <!-- الأدعية -->
+    <a href="#" class="card" onclick="alert('صفحة الأدعية قيد التطوير')">
+      <div class="image-container">
+        <img src="https://cdn1.sarahanews.net/wp-content/uploads/2025/03/shutterstock_641652841_0.jpg-2.webp" alt="الأدعية">
+      </div>
+      <h3>أدعية رمضان</h3>
+    </a>
+
+    <!-- الوصفات -->
+    <a href="#" class="card" onclick="alert('صفحة الوصفات قيد التطوير')">
+      <div class="image-container">
+        <img src="https://www.aljawharamag.com/aljawhara/uploads/2020/04/%D8%AA%D8%B2%D9%8A%D9%8A%D9%86.jpeg" alt="الوصفات">
+      </div>
+      <h3>وصفات رمضانية</h3>
+    </a>
+
+    <!-- البودكاست -->
+    <a href="#" class="card" onclick="alert('صفحة البودكاست قيد التطوير')">
+      <div class="image-container">
+        <img src="https://alriyady.com/wp-content/uploads/2024/02/64b3c171c5c9414b8b2ea6e4_Blog-Cover_2023_07_8-Benefits-of-Podcasting-_-Why-You-Must-Start-a-Podcast.webp" alt="البودكاست">
+      </div>
+      <h3>البودكاست الرمضاني</h3>
+    </a>
+  </main>
+
+  <!-- زر العودة للأعلى -->
+  <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </div>
+
+  <footer>
+    <p><span class="ramadan-icon">🌙</span> مكتبتي الرمضانية © 2024 - كل عام وأنتم بخير <span class="ramadan-icon">⭐</span></p>
+    <p style="font-size: 0.9rem; margin-top: 10px; color: #666;">تم التصميم بألوان وزخارف رمضانية مميزة</p>
+  </footer>
+
+  <script>
+    // إضافة تأثيرات تفاعلية بسيطة
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.background = 'linear-gradient(135deg, #fff, #f9f5e7)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.background = 'white';
+      });
+    });
+
+    // إظهار/إخفاء زر العودة للأعلى
+    window.addEventListener('scroll', function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.style.opacity = '1';
+        backToTop.style.visibility = 'visible';
+      } else {
+        backToTop.style.opacity = '0';
+        backToTop.style.visibility = 'hidden';
+      }
+    });
+  </script>
+</body>
+</html>
